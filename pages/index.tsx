@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import Filter from "../components/Filter";
 import Header from "../components/Header";
 import NumberOfInvoices from "../components/NumberOfInvoices";
+import EmptyInvoice from "../public/assets/Email campaign_Flatline 2.png";
 
 const Home: NextPage = () => {
   const [width, setWidth] = useState(0);
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
 
   const invoices = [];
   return (
-    <div className="flex min-h-screen flex-col bg-lightBg relative ">
+    <div className="flex min-h-screen flex-col bg-lightBg relative gap-[102px]">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -46,13 +47,18 @@ const Home: NextPage = () => {
         <Filter width={width} />
         <Button btn={1}>{width > 768 ? "New invoice" : "New"}</Button>
       </div>
-      <div className="px-6">
-        {/* <Image/> */}
-        {/* <h2>There is nothing here</h2>
-        <p>
-          Create an invoice by clicking the
-          <b>New</b> button and get started
-        </p> */}
+      <div className="px-20 flex flex-col items-center gap-5">
+        <div className="w-[193px] h-[160px] relative mb-4">
+          <Image className="" src={EmptyInvoice.src} fill alt="Empty invoice" />
+        </div>
+        <h2 className="text-center font-bold text-[22px]">
+          There is nothing here
+        </h2>
+        <p className="text-center font-medium text-[15px] text-steel leading-[15px]">
+          Create an invoice by clicking the{" "}
+          <b className="text-[15px] text-steel leading-[15px]">New</b> button
+          and get started
+        </p>
       </div>
     </div>
   );
