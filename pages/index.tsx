@@ -1,12 +1,28 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Filter from "../components/Filter";
 import Header from "../components/Header";
 import NumberOfInvoices from "../components/NumberOfInvoices";
 
 const Home: NextPage = () => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const defaultSize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    defaultSize();
+    window.addEventListener("resize", handleResize);
+  }, [width]);
+
   const invoices = [];
   return (
     <div className="flex min-h-screen flex-col bg-lightBg relative ">
@@ -25,10 +41,10 @@ const Home: NextPage = () => {
         ></link>
       </Head>
       <Header />
-      <div className="pt-[104px] flex px-6">
+      <div className="pt-[104px] flex px-6 mx-auto w-full md:max-w-[730px]">
         <NumberOfInvoices />
-        <Filter />
-        <Button btn={1}>New</Button>
+        <Filter width={width} />
+        <Button btn={1}>{width > 768 ? "New invoice" : "New"}</Button>
       </div>
       <div className="px-6">
         {/* <Image/> */}

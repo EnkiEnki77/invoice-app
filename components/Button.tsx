@@ -10,7 +10,7 @@ type Props = {
 const Button = ({ children, btn }: Props) => {
   return (
     <button
-      className={` flex items-center gap-2 ${
+      className={` flex items-center gap-2 md:gap-4 ${
         btn === 1 && "pl-2 pr-[14px] bg-purple rounded-[24px]"
       }
     }`}
