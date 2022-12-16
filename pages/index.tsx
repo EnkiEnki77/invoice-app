@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Filter from "../components/Filter";
 import Header from "../components/Header";
+import Invoice from "../components/Invoice";
 import NumberOfInvoices from "../components/NumberOfInvoices";
 import EmptyInvoice from "../public/assets/Email campaign_Flatline 2.png";
 
@@ -24,7 +25,11 @@ const Home: NextPage = () => {
     window.addEventListener("resize", handleResize);
   }, [width]);
 
-  const invoices = [];
+  type invoiceType =
+    | { id: string; dueDate: string; amountPaid: string; name: string }[]
+    | never[];
+
+  const invoices: invoiceType = [];
   return (
     <div className="flex min-h-screen flex-col bg-lightBg relative gap-[102px]">
       <Head>
@@ -47,19 +52,32 @@ const Home: NextPage = () => {
         <Filter width={width} />
         <Button btn={1}>{width > 768 ? "New invoice" : "New"}</Button>
       </div>
-      <div className="mx-auto flex flex-col items-center w-full gap-5 max-w-[217px] md:max-w-[242px]">
-        <div className="w-[193px] md:w-[241px] h-[160px] md:h-[200px] relative mb-4">
-          <Image className="" src={EmptyInvoice.src} fill alt="Empty invoice" />
+      {invoices.length === 0 ? (
+        <div className="mx-auto flex flex-col items-center w-full gap-5 max-w-[217px] md:max-w-[242px]">
+          <div className="w-[193px] md:w-[241px] h-[160px] md:h-[200px] relative mb-4">
+            <Image
+              className=""
+              src={EmptyInvoice.src}
+              fill
+              alt="Empty invoice"
+            />
+          </div>
+          <h2 className="text-center font-bold text-[22px]">
+            There is nothing here
+          </h2>
+          <p className="max-w-[221px] text-center font-medium text-[15px] text-steel leading-[15px]">
+            Create an invoice by clicking the{" "}
+            <b className="text-[15px] text-steel leading-[15px]">New</b> button
+            and get started
+          </p>
         </div>
-        <h2 className="text-center font-bold text-[22px]">
-          There is nothing here
-        </h2>
-        <p className="max-w-[221px] text-center font-medium text-[15px] text-steel leading-[15px]">
-          Create an invoice by clicking the{" "}
-          <b className="text-[15px] text-steel leading-[15px]">New</b> button
-          and get started
-        </p>
-      </div>
+      ) : (
+        <div className="flex flex-col">
+          {invoices.map((invoice) => (
+            <Invoice key={invoice.id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
