@@ -1,28 +1,33 @@
+import Image from "next/image";
 import React from "react";
+import plus from "../public/assets/plus.png";
 
 type Props = {
-  children: string | React.ReactElement;
+  children: string;
   btn: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 const Button = ({ children, btn }: Props) => {
   return (
     <button
-      className={` ${btn === 1 ? "px-2" : "px-6"} 
-    py-4 rounded-3xl ${
-      btn === 1 || btn === 2
-        ? "bg-purple hover:bg-lightPurple"
-        : btn === 3
-        ? "bg-[#F9FAFE] hover:bg-lightGray"
-        : btn === 4
-        ? "bg-red hover:bg-peach"
-        : btn === 5
-        ? "bg-[#373B53] hover:bg-blackoc text-steel"
-        : "bg-[#F9FAFE] hover:bg-steel"
+      className={` flex items-center gap-2 ${
+        btn === 1 && "pl-2 pr-[14px] bg-purple rounded-[24px]"
+      }
     }`}
       type="submit"
     >
-      {children}
+      {btn === 1 ? (
+        <>
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+            <Image src={plus} className="w-[10px] h-[10px]" alt="" />
+          </div>
+          <p className="text-white font-bold text-xs font-spartan">
+            {children}
+          </p>
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 };

@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Button from "../components/Button";
+import Filter from "../components/Filter";
 import Header from "../components/Header";
 import NumberOfInvoices from "../components/NumberOfInvoices";
 
@@ -25,8 +27,8 @@ const Home: NextPage = () => {
       <Header />
       <div className="pt-[104px] flex px-6">
         <NumberOfInvoices />
-        {/* <Filter/> */}
-        {/* <Button/> */}
+        <Filter />
+        <Button btn={1}>New</Button>
       </div>
       <div className="px-6">
         {/* <Image/> */}
