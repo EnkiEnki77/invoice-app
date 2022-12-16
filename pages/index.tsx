@@ -29,9 +29,20 @@ const Home: NextPage = () => {
     | { id: string; dueDate: string; amountPaid: string; name: string }[]
     | never[];
 
-  const invoices: invoiceType = [];
+  const invoices: invoiceType = [
+    {
+      id: "RT3080",
+      dueDate: "Due  19 Aug 2021",
+      amountPaid: "£ 1,800.90",
+      name: "Jensen Huang",
+    },
+  ];
   return (
-    <div className="flex min-h-screen flex-col bg-lightBg relative gap-[102px]">
+    <div
+      className={`flex min-h-screen flex-col bg-lightBg relative ${
+        invoices.length === 0 ? "gap-[102px]" : "gap-8"
+      }`}
+    >
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -47,7 +58,7 @@ const Home: NextPage = () => {
         ></link>
       </Head>
       <Header />
-      <div className="pt-[104px] flex px-6 mx-auto w-full md:max-w-[730px]">
+      <div className="pt-[104px] flex px-6 mx-auto w-full md:px-12">
         <NumberOfInvoices />
         <Filter width={width} />
         <Button btn={1}>{width > 768 ? "New invoice" : "New"}</Button>
@@ -72,9 +83,16 @@ const Home: NextPage = () => {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col">
+        <div className="flex flex-col px-6 lg:max-w-[730px] md:px-12">
           {invoices.map((invoice) => (
-            <Invoice key={invoice.id} />
+            <Invoice
+              id={invoice.id}
+              name={invoice.name}
+              dueDate={invoice.dueDate}
+              amountPaid={invoice.amountPaid}
+              width={width}
+              key={invoice.id}
+            />
           ))}
         </div>
       )}
