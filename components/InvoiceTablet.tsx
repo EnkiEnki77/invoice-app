@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import chevronRight from "../public/assets/chevron-right.png";
 
 type Props = {
   id: string;
@@ -20,11 +22,16 @@ const InvoiceTablet = ({ id, name, amountPaid, dueDate }: Props) => {
       </p>
       <p className="font-medium text-steel text-[15px]">{name}</p>
       <p className="font-bold text-[22px] leading-6">{amountPaid}</p>
-      <div className="h-10 w-[104px] bg-[#33D89F]/20 flex items-center justify-center gap-2 rounded-md">
-        <div className="w-2 h-2 rounded-full bg-[#33D89F]"></div>
-        <p className="font-bold capitalize text-[15px] text-[#33D89F] pt-1">
-          paid
-        </p>
+      <div className="flex gap-5 items-center">
+        <div className="h-10 w-[104px] bg-[#33D89F]/20 flex items-center justify-center gap-2 rounded-md">
+          <div className="w-2 h-2 rounded-full bg-[#33D89F]"></div>
+          <p className="font-bold capitalize text-[15px] text-[#33D89F] pt-1">
+            paid
+          </p>
+        </div>
+        <div className="w-2 h-2 relative pt-3">
+          <Image src={chevronRight} fill alt="" />
+        </div>
       </div>
     </>
   );

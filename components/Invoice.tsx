@@ -13,7 +13,7 @@ type Props = {
 
 const Invoice = ({ id, name, amountPaid, dueDate, status, width }: Props) => {
   return (
-    <div className="w-full h-[134px] md:h-[72px] md:gap-[47px] p-6 bg-white flex md:items-center md:justify-between rounded-lg">
+    <div className="w-full  h-[134px] md:h-[72px] md:gap-[47px] p-6 bg-white flex md:items-center md:justify-between rounded-lg">
       {width < 768 ? (
         <InvoiceMobile
           id={id}

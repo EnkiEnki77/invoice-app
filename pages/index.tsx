@@ -58,7 +58,7 @@ const Home: NextPage = () => {
         ></link>
       </Head>
       <Header />
-      <div className="pt-[104px] flex px-6 mx-auto w-full md:px-12">
+      <div className="pt-[104px] flex max-w-[550px]  px-6 mx-auto md:max-w-[672px] lg:max-w-[850px] w-full md:px-12">
         <NumberOfInvoices />
         <Filter width={width} />
         <Button btn={1}>{width > 768 ? "New invoice" : "New"}</Button>
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col px-6 lg:max-w-[730px] md:px-12">
+        <div className="flex flex-col px-6 max-w-[550px] w-full mx-auto  md:max-w-[672px] lg:max-w-[850px] md:px-12">
           {invoices.map((invoice) => (
             <Invoice
               id={invoice.id}
