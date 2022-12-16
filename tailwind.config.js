@@ -23,6 +23,10 @@ module.exports = {
         peach: '#FF9797',
       }
     },
+
+    fontFamily:{
+      spartan: ['League Spartan','sans-serif']
+    }
   },
   plugins: [],
 }

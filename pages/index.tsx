@@ -2,11 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
+import NumberOfInvoices from "../components/NumberOfInvoices";
 
 const Home: NextPage = () => {
   const invoices = [];
   return (
-    <div className="flex min-h-screen flex-col bg-lightBg relative">
+    <div className="flex min-h-screen flex-col bg-lightBg relative ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -22,18 +23,18 @@ const Home: NextPage = () => {
         ></link>
       </Head>
       <Header />
-      <div>
-        {/* <NumberOfInvoices/> */}
+      <div className="pt-[104px] flex px-6">
+        <NumberOfInvoices />
         {/* <Filter/> */}
         {/* <Button/> */}
       </div>
-      <div>
+      <div className="px-6">
         {/* <Image/> */}
-        <h2>There is nothing here</h2>
+        {/* <h2>There is nothing here</h2>
         <p>
           Create an invoice by clicking the
           <b>New</b> button and get started
-        </p>
+        </p> */}
       </div>
     </div>
   );
