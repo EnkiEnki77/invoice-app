@@ -10,8 +10,14 @@ type Props = {
 const Button = ({ children, btn }: Props) => {
   return (
     <button
-      className={` flex items-center gap-2 md:gap-4 ${
-        btn === 1 && "pl-2 pr-[14px] bg-purple rounded-[24px]"
+      className={`text-[15px] font-bold flex cursor-pointer items-center gap-2 md:gap-4 rounded-[24px] h-[48px] px-6 ${
+        btn === 1
+          ? "pl-2 pr-[14px] bg-purple rounded-[24px]"
+          : btn === 2
+          ? " bg-purple hover:bg-lightPurple text-white"
+          : btn === 3
+          ? " bg-[#F9FAFE] hover:bg-lightGray text-blueGray"
+          : btn === 5 && " bg-red hover:bg-peach text-white"
       }
     }`}
       type="submit"
