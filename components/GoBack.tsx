@@ -6,7 +6,7 @@ type Props = {};
 
 const GoBack = (props: Props) => {
   return (
-    <div className="pt-[104px] flex gap-6 items-center">
+    <div className="pt-[120px] mb-4 flex gap-6 items-center">
       <Image className="w-2 h-3" src={chevronLeft} alt="" />
       <p className="font-bold text-[15px]">Go back</p>
     </div>
