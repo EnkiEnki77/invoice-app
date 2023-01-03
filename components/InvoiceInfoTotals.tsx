@@ -4,7 +4,7 @@ type Props = {};
 
 const InvoiceInfoTotals = (props: Props) => {
   return (
-    <div className="bg-lightBg pt-6 rounded-lg overflow-hidden flex flex-col gap-6">
+    <div className="bg-lightBg pt-6 rounded-lg overflow-hidden flex flex-col gap-6 md:basis-full">
       <div className="flex px-6 justify-between items-center">
         <div>
           <p className="text-[15px] font-bold">Banner Design</p>
